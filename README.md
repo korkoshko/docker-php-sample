@@ -13,27 +13,27 @@
 
 ### 1. Copy the environment variables file:
 ```bash
-  cp .env.example .env
+cp .env.example .env
 ```
 
 ### 2. Build and start the Docker containers:
 ```bash
-  docker compose up -d
+docker compose up -d
 ```
 
 ### 3. Access the backend container:
 ```bash
-  docker compose exec backend bash
+docker compose exec backend bash
 ```
 
 ### 4. Run database migrations:
 ```bash
-  sf doctrine:migrations:migrate -n
+sf doctrine:migrations:migrate -n
 ```
 
 ### 5. Load sample data into the database:
 ```bash
-  sf app:quotes:load
+sf app:quotes:load
 ```
 
 ---
@@ -49,12 +49,12 @@ ___
 
 ### Prepare the environment (recreate the database and run migrations):
 ```bash
-  c test:prepare
+c test:prepare
 ```
 
 ### Run tests:
 ```bash
-  c test
+c test
 ```
 
 ---
