@@ -26,12 +26,17 @@ docker compose up -d
 docker compose exec backend bash
 ```
 
-### 4. Run database migrations:
+### 4. Install dependencies
+```bash
+c install
+```
+
+### 5. Run database migrations:
 ```bash
 sf doctrine:migrations:migrate -n
 ```
 
-### 5. Load sample data into the database:
+### 6. Load sample data into the database:
 ```bash
 sf app:quotes:load
 ```
