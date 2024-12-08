@@ -1,4 +1,4 @@
-# Docker Sample
+# Docker Sample (Nginx + PHP-FPM + Postgres + Redis)
 
 **Specially crafted for members of the @symfony_php**
 
