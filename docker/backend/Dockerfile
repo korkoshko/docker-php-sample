@@ -9,8 +9,11 @@ COPY --from=composer/composer:2.8-bin --link /composer /usr/bin/composer
 RUN apt-get update -y && apt-get install -y libpq-dev postgresql-client libicu-dev libxslt1-dev libzip-dev zip unzip \
     && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install -j$(nproc) pdo_pgsql intl xsl zip exif dom \
-    && pecl install redis-6.1.0 && docker-php-ext-enable redis;
+RUN docker-php-ext-install -j$(nproc) pdo_pgsql intl xsl zip exif dom;
+
+COPY --from=ghcr.io/php/pie:bin /pie /usr/bin/pie
+
+RUN pie install phpredis/phpredis:6.1.0
 
 WORKDIR /app
 
