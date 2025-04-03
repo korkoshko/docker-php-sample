@@ -28,7 +28,7 @@ docker compose exec backend bash
 
 ### 4. Install dependencies
 ```bash
-c install
+composer install
 ```
 
 ### 5. Run database migrations:
@@ -40,7 +40,6 @@ sf doctrine:migrations:migrate -n
 ```bash
 sf app:quotes:load
 ```
-
 ---
 
 ## Access the Application
@@ -54,12 +53,26 @@ ___
 
 ### Prepare the environment (recreate the database and run migrations):
 ```bash
-c test:prepare
+composer test:prepare
 ```
 
 ### Run tests:
 ```bash
-c test
+composer test
+```
+---
+
+## Quality
+
+### Code style:
+```bash
+composer style:check
+composer syle:fix
+```
+
+### PHPStan:
+```bash
+composer phpstan
 ```
 
 ---

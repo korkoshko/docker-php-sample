@@ -76,9 +76,9 @@ final class QuoteHtml
                 <div class="quote-container">
                     <div>
                         <p class="quote-text">"$quote->quote"</p>
-                        <p class="quote-author">- $quote->author</p>
+                        <p class="quote-author">— $quote->author</p>
                     </div>
-                    <button class="button-primary"" onclick="location.reload()">Next</button>
+                    <button class="button-primary" onclick="location.reload()">Next</button>
                 </div>
             </body>
             </html>
