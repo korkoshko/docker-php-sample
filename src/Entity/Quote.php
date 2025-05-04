@@ -23,4 +23,3 @@ class Quote
         public string $author,
     ) {}
 }
-

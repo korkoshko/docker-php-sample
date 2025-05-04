@@ -6,19 +6,22 @@ namespace App\Tests\Functional;
 
 use App\Entity\Quote;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Zenstruck\Foundry\Test\Factories;
 
 use function Zenstruck\Foundry\Persistence\proxy_factory;
 use function Zenstruck\Foundry\Persistence\repository;
 
 class HomeActionTest extends WebTestCase
 {
+    use Factories;
+
     public function testDisplaysQuote(): void
     {
         $client = static::createClient();
 
         proxy_factory(Quote::class)->create([
-            'quote' => 'Cyber-security is not an IT issue; it\'s a people issue.',
-            'author' => 'CyberSecurity Expert'
+            'quote' => $quote = 'Роль кібербезпеки трохи перебільшена',
+            'author' => $author = 'Михайло Федоров, Міністр цифрової трансформації України',
         ]);
 
         self::assertSame(1, repository(Quote::class)->count());
@@ -27,8 +30,8 @@ class HomeActionTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
 
-        self::assertSelectorTextContains('p.quote-text', '"Cyber-security is not an IT issue; it\'s a people issue."');
-        self::assertSelectorTextContains('p.quote-author', 'CyberSecurity Expert');
+        self::assertSelectorTextContains('p.quote-text', $quote);
+        self::assertSelectorTextContains('p.quote-author', $author);
     }
 
     public function testDisplaysFallbackMessageWhenNoQuotesExists(): void
